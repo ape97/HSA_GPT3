@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+
+# Build artifacts
+dist/
+
+# Environment variables
+.env
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+
+# Logs
+logs/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore package-lock.json for projects that use npm
+# Comment the following line if you are using yarn as your package manager
+package-lock.json
+
+# Visual Studio Code specific files
+.vscode/
+*.code-workspace
+/.vscode/*.json
+/.vscode/*.code-snippets
+/.vscode/extensions.json
