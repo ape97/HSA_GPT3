@@ -31,3 +31,6 @@ package-lock.json
 /.vscode/*.json
 /.vscode/*.code-snippets
 /.vscode/extensions.json
+
+# project specific
+/trainer/fine_tune_files

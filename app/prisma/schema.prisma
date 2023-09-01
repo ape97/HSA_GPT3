@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Conversation {
+  id         Int        @id @default(autoincrement())
+  created_at DateTime   @default(now())
+  questions  Question[]
+  answers    Answer[]
+}
+
+model Question {
+  id              Int          @id @default(autoincrement())
+  conversation_id Int
+  conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  answer          Answer?
+  text            String
+  created_at      DateTime     @default(now())
+}
+
+model Answer {
+  id              Int          @id @default(autoincrement())
+  conversation_id Int
+  conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  question_id     Int          @unique
+  question        Question     @relation(fields: [question_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  text            String
+  created_at      DateTime     @default(now())
+  feedback        Feedback?
+}
+
+model Feedback {
+  id          Int      @id @default(autoincrement())
+  answer_id   Int      @unique
+  answer      Answer   @relation(fields: [answer_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  is_positive Boolean  @default(false)
+  text        String
+  created_at  DateTime @default(now())
+}

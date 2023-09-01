@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hochschulassistent</title>
+</head>
+<body>
+  <main class="content">
+    <div class="container p-0">
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="py-2 px-4 border-bottom">
+              <div class="d-flex align-items-center py-1">
+                <div>
+                  <h1 class="h3 mb-2">Hochschulassistent</h1>
+                </div>
+              </div>
+            </div>
+            <div class="position-relative">
+              <div id="chat" class="chat-messages p-4">    
+              </div>
+            </div>
+            <div class="flex-grow-0 py-3 px-4 border-top">
+              <div class="input-group">
+                <input id="passwordInput" type="password" class="form-control password-input" placeholder="Passwort">
+                <input id="userInput" type="text" class="form-control" placeholder="Stelle eine Frage">
+                <button id="sendButton" class="btn btn-primary">Senden</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modaler Dialog -->
+<div class="modal" id="feedbackModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="feedbackTextPlaceholder" class="modal-title">Feedback geben</h5>
+        <button type="button" class="close" onclick="closeFeedbackModal()" data-dismiss="modal" aria-label="Schließen">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label for="feedbackText">Feedback</label>
+            <textarea class="form-control" id="feedbackText" rows="3"></textarea>
+          </div>
+          <input type="hidden" id="approveInput" value="">
+          <input type="hidden" id="answer_idInput" value="">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="submitFeedback()">Absenden</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
